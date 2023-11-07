@@ -1,16 +1,18 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-//Iteratively using memoization
-int iStepFibbonacci(int n){
+// Iteratively using memoization
+int iStepFibbonacci(int n)
+{
     vector<int> f;
     f.push_back(0);
     f.push_back(1);
     //[]
     int cnt = 2;
-    for(int i = 2; i < n; i++){
+    for (int i = 2; i < n; i++)
+    {
         cnt++;
         f.push_back(f[i - 1] + f[i - 2]);
     }
@@ -19,15 +21,21 @@ int iStepFibbonacci(int n){
 
 int rSteps = 0;
 
-//Recursively
-int rStepFibbonacci(int n){
+// Recursively
+int rStepFibbonacci(int n)
+{
     rSteps++;
-    if(n < 0) return 0;
-    if(n == 1 || n == 0) return 1;
+    if (n < 0)
+        return 0;
+    if (n == 1 || n == 0)
+        return 1;
     return rStepFibbonacci(n - 1) + rStepFibbonacci(n - 2);
 }
 
-int main(){
+int main()
+{
+
+    cout << "Enter the value " << endl;
     int n;
     cin >> n;
     cout << "Fibbonacci Value : " << rStepFibbonacci(n) << '\n';
@@ -42,6 +50,6 @@ Time Complexity: O(n*2n)
 Auxiliary Space: O(n), For recursion call stack.
 
 Iterative fibbonacci:
-Time Complexity: O(n) 
+Time Complexity: O(n)
 Auxiliary Space: O(1)
 */
